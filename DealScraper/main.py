@@ -1,3 +1,17 @@
+from PySide6.QtWidgets import QApplication, QWidget
+from handler import Handler
+
+import sys
+
+app = QApplication(sys.argv)
+
+window = Handler()
+window.show()
+
+app.exec()
+
+
+'''
 # setup and run the handler and SysTrayIcon
 from SysTrayIcon import MainWindow
 try:
@@ -13,31 +27,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# Minimal self test. You'll need a bunch of ICO files in the current working
-# directory in order for this to work...
-
-'''
-if __name__ == '__main__':
-    import itertools, glob
-
-    icons = itertools.cycle(glob.glob('*.ico'))
-    hover_text = "SysTrayIcon.py Demo"
-    def hello(sysTrayIcon): print("Hello World.")
-    def simon(sysTrayIcon): print("Hello Simon.")
-    def switch_icon(sysTrayIcon):
-        sysTrayIcon.icon = icons.next()
-        sysTrayIcon.refresh_icon()
-    menu_options = (('Say Hello', icons.next(), hello),
-                    ('Switch Icon', None, switch_icon),
-                    ('A sub-menu', icons.next(), (('Say Hello to Simon', icons.next(), simon),
-                                                  ('Switch Icon', icons.next(), switch_icon),
-                                                  ))
-                    )
-    def bye(sysTrayIcon): print('Bye, then.')
-
-    SysTrayIcon(icons.next(), hover_text, menu_options, on_quit=bye, default_menu_index=1)
-    
 '''
 
 '''
